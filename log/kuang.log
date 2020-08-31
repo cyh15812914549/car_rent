@@ -1,0 +1,157 @@
+[DEBUG][20-08-12][com.baomidou.mybatisplus.generator.AutoGenerator]==========================准备生成文件...==========================
+[WARN][20-08-12][org.apache.velocity.deprecation]configuration key 'file.resource.loader.unicode' has been deprecated in favor of 'resource.loader.file.unicode'
+[WARN][20-08-12][org.apache.velocity.deprecation]configuration key 'file.resource.loader.class' has been deprecated in favor of 'resource.loader.file.class'
+[DEBUG][20-08-12][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]创建目录： [E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\mapper\xml]
+[DEBUG][20-08-12][org.apache.velocity]Initializing Velocity, Calling init()...
+[DEBUG][20-08-12][org.apache.velocity]Starting Apache Velocity v2.0
+[DEBUG][20-08-12][org.apache.velocity]Default Properties resource: org/apache/velocity/runtime/defaults/velocity.properties
+[DEBUG][20-08-12][org.apache.velocity]ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-12][org.apache.velocity]initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+[DEBUG][20-08-12][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+[DEBUG][20-08-12][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Define
+[DEBUG][20-08-12][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Break
+[DEBUG][20-08-12][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+[DEBUG][20-08-12][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+[DEBUG][20-08-12][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+[DEBUG][20-08-12][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Include
+[DEBUG][20-08-12][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+[DEBUG][20-08-12][org.apache.velocity.parser]Created '20' parsers.
+[DEBUG][20-08-12][org.apache.velocity.macro]"velocimacro.library.path" is not set. Trying default library: velocimacros.vtl
+[DEBUG][20-08-12][org.apache.velocity.loader.file]Could not load resource 'velocimacros.vtl' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-12][org.apache.velocity.macro]Default library velocimacros.vtl not found. Trying old default library: VM_global_library.vm
+[DEBUG][20-08-12][org.apache.velocity.loader.file]Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-12][org.apache.velocity.macro]Old default library VM_global_library.vm not found.
+[DEBUG][20-08-12][org.apache.velocity.macro]allowInline = true: VMs can be defined inline in templates
+[DEBUG][20-08-12][org.apache.velocity.macro]allowInlineToOverride = false: VMs defined inline may NOT replace previous VM definitions
+[DEBUG][20-08-12][org.apache.velocity.macro]allowInlineLocal = false: VMs defined inline will be global in scope if allowed.
+[DEBUG][20-08-12][org.apache.velocity.macro]autoload off: VM system will not automatically reload global library macros
+[DEBUG][20-08-12][org.apache.velocity.loader]ResourceManager: found /templates/entity.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-12][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/entity.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\entity\Menu.java
+[DEBUG][20-08-12][org.apache.velocity.loader]ResourceManager: found /templates/mapper.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-12][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/mapper.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\mapper\MenuMapper.java
+[DEBUG][20-08-12][org.apache.velocity.loader]ResourceManager: found /templates/mapper.xml.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-12][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/mapper.xml.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\mapper\xml\MenuMapper.xml
+[DEBUG][20-08-12][org.apache.velocity.loader]ResourceManager: found /templates/service.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-12][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/service.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\service\MenuService.java
+[DEBUG][20-08-12][org.apache.velocity.loader]ResourceManager: found /templates/serviceImpl.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-12][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/serviceImpl.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\service\impl\MenuServiceImpl.java
+[DEBUG][20-08-12][org.apache.velocity.loader]ResourceManager: found /templates/controller.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-12][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/controller.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\controller\MenuController.java
+[DEBUG][20-08-12][com.baomidou.mybatisplus.generator.AutoGenerator]==========================文件生成完成！！！==========================
+[DEBUG][20-08-19][com.baomidou.mybatisplus.generator.AutoGenerator]==========================准备生成文件...==========================
+[WARN][20-08-19][org.apache.velocity.deprecation]configuration key 'file.resource.loader.unicode' has been deprecated in favor of 'resource.loader.file.unicode'
+[WARN][20-08-19][org.apache.velocity.deprecation]configuration key 'file.resource.loader.class' has been deprecated in favor of 'resource.loader.file.class'
+[DEBUG][20-08-19][org.apache.velocity]Initializing Velocity, Calling init()...
+[DEBUG][20-08-19][org.apache.velocity]Starting Apache Velocity v2.0
+[DEBUG][20-08-19][org.apache.velocity]Default Properties resource: org/apache/velocity/runtime/defaults/velocity.properties
+[DEBUG][20-08-19][org.apache.velocity]ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-19][org.apache.velocity]initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+[DEBUG][20-08-19][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+[DEBUG][20-08-19][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Define
+[DEBUG][20-08-19][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Break
+[DEBUG][20-08-19][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+[DEBUG][20-08-19][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+[DEBUG][20-08-19][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+[DEBUG][20-08-19][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Include
+[DEBUG][20-08-19][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+[DEBUG][20-08-19][org.apache.velocity.parser]Created '20' parsers.
+[DEBUG][20-08-19][org.apache.velocity.macro]"velocimacro.library.path" is not set. Trying default library: velocimacros.vtl
+[DEBUG][20-08-19][org.apache.velocity.loader.file]Could not load resource 'velocimacros.vtl' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-19][org.apache.velocity.macro]Default library velocimacros.vtl not found. Trying old default library: VM_global_library.vm
+[DEBUG][20-08-19][org.apache.velocity.loader.file]Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-19][org.apache.velocity.macro]Old default library VM_global_library.vm not found.
+[DEBUG][20-08-19][org.apache.velocity.macro]allowInline = true: VMs can be defined inline in templates
+[DEBUG][20-08-19][org.apache.velocity.macro]allowInlineToOverride = false: VMs defined inline may NOT replace previous VM definitions
+[DEBUG][20-08-19][org.apache.velocity.macro]allowInlineLocal = false: VMs defined inline will be global in scope if allowed.
+[DEBUG][20-08-19][org.apache.velocity.macro]autoload off: VM system will not automatically reload global library macros
+[DEBUG][20-08-19][org.apache.velocity.loader]ResourceManager: found /templates/entity.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-19][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/entity.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\entity\Role.java
+[DEBUG][20-08-19][org.apache.velocity.loader]ResourceManager: found /templates/mapper.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-19][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/mapper.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\mapper\RoleMapper.java
+[DEBUG][20-08-19][org.apache.velocity.loader]ResourceManager: found /templates/mapper.xml.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-19][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/mapper.xml.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\mapper\xml\RoleMapper.xml
+[DEBUG][20-08-19][org.apache.velocity.loader]ResourceManager: found /templates/service.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-19][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/service.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\service\RoleService.java
+[DEBUG][20-08-19][org.apache.velocity.loader]ResourceManager: found /templates/serviceImpl.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-19][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/serviceImpl.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\service\impl\RoleServiceImpl.java
+[DEBUG][20-08-19][org.apache.velocity.loader]ResourceManager: found /templates/controller.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-19][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/controller.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\controller\RoleController.java
+[DEBUG][20-08-19][com.baomidou.mybatisplus.generator.AutoGenerator]==========================文件生成完成！！！==========================
+[DEBUG][20-08-24][com.baomidou.mybatisplus.generator.AutoGenerator]==========================准备生成文件...==========================
+[WARN][20-08-24][org.apache.velocity.deprecation]configuration key 'file.resource.loader.unicode' has been deprecated in favor of 'resource.loader.file.unicode'
+[WARN][20-08-24][org.apache.velocity.deprecation]configuration key 'file.resource.loader.class' has been deprecated in favor of 'resource.loader.file.class'
+[DEBUG][20-08-24][org.apache.velocity]Initializing Velocity, Calling init()...
+[DEBUG][20-08-24][org.apache.velocity]Starting Apache Velocity v2.0
+[DEBUG][20-08-24][org.apache.velocity]Default Properties resource: org/apache/velocity/runtime/defaults/velocity.properties
+[DEBUG][20-08-24][org.apache.velocity]ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-24][org.apache.velocity]initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+[DEBUG][20-08-24][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+[DEBUG][20-08-24][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Define
+[DEBUG][20-08-24][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Break
+[DEBUG][20-08-24][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+[DEBUG][20-08-24][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+[DEBUG][20-08-24][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+[DEBUG][20-08-24][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Include
+[DEBUG][20-08-24][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+[DEBUG][20-08-24][org.apache.velocity.parser]Created '20' parsers.
+[DEBUG][20-08-24][org.apache.velocity.macro]"velocimacro.library.path" is not set. Trying default library: velocimacros.vtl
+[DEBUG][20-08-24][org.apache.velocity.loader.file]Could not load resource 'velocimacros.vtl' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-24][org.apache.velocity.macro]Default library velocimacros.vtl not found. Trying old default library: VM_global_library.vm
+[DEBUG][20-08-24][org.apache.velocity.loader.file]Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-24][org.apache.velocity.macro]Old default library VM_global_library.vm not found.
+[DEBUG][20-08-24][org.apache.velocity.macro]allowInline = true: VMs can be defined inline in templates
+[DEBUG][20-08-24][org.apache.velocity.macro]allowInlineToOverride = false: VMs defined inline may NOT replace previous VM definitions
+[DEBUG][20-08-24][org.apache.velocity.macro]allowInlineLocal = false: VMs defined inline will be global in scope if allowed.
+[DEBUG][20-08-24][org.apache.velocity.macro]autoload off: VM system will not automatically reload global library macros
+[DEBUG][20-08-24][org.apache.velocity.loader]ResourceManager: found /templates/entity.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-24][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/entity.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\entity\User.java
+[DEBUG][20-08-24][org.apache.velocity.loader]ResourceManager: found /templates/mapper.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-24][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/mapper.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\mapper\UserMapper.java
+[DEBUG][20-08-24][org.apache.velocity.loader]ResourceManager: found /templates/mapper.xml.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-24][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/mapper.xml.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\mapper\xml\UserMapper.xml
+[DEBUG][20-08-24][org.apache.velocity.loader]ResourceManager: found /templates/service.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-24][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/service.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\service\UserService.java
+[DEBUG][20-08-24][org.apache.velocity.loader]ResourceManager: found /templates/serviceImpl.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-24][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/serviceImpl.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\service\impl\UserServiceImpl.java
+[DEBUG][20-08-24][org.apache.velocity.loader]ResourceManager: found /templates/controller.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-24][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/controller.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\controller\UserController.java
+[DEBUG][20-08-24][com.baomidou.mybatisplus.generator.AutoGenerator]==========================文件生成完成！！！==========================
+[DEBUG][20-08-26][com.baomidou.mybatisplus.generator.AutoGenerator]==========================准备生成文件...==========================
+[WARN][20-08-26][org.apache.velocity.deprecation]configuration key 'file.resource.loader.unicode' has been deprecated in favor of 'resource.loader.file.unicode'
+[WARN][20-08-26][org.apache.velocity.deprecation]configuration key 'file.resource.loader.class' has been deprecated in favor of 'resource.loader.file.class'
+[DEBUG][20-08-26][org.apache.velocity]Initializing Velocity, Calling init()...
+[DEBUG][20-08-26][org.apache.velocity]Starting Apache Velocity v2.0
+[DEBUG][20-08-26][org.apache.velocity]Default Properties resource: org/apache/velocity/runtime/defaults/velocity.properties
+[DEBUG][20-08-26][org.apache.velocity]ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-26][org.apache.velocity]initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+[DEBUG][20-08-26][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+[DEBUG][20-08-26][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Define
+[DEBUG][20-08-26][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Break
+[DEBUG][20-08-26][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+[DEBUG][20-08-26][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+[DEBUG][20-08-26][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+[DEBUG][20-08-26][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Include
+[DEBUG][20-08-26][org.apache.velocity]Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+[DEBUG][20-08-26][org.apache.velocity.parser]Created '20' parsers.
+[DEBUG][20-08-26][org.apache.velocity.macro]"velocimacro.library.path" is not set. Trying default library: velocimacros.vtl
+[DEBUG][20-08-26][org.apache.velocity.loader.file]Could not load resource 'velocimacros.vtl' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-26][org.apache.velocity.macro]Default library velocimacros.vtl not found. Trying old default library: VM_global_library.vm
+[DEBUG][20-08-26][org.apache.velocity.loader.file]Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-26][org.apache.velocity.macro]Old default library VM_global_library.vm not found.
+[DEBUG][20-08-26][org.apache.velocity.macro]allowInline = true: VMs can be defined inline in templates
+[DEBUG][20-08-26][org.apache.velocity.macro]allowInlineToOverride = false: VMs defined inline may NOT replace previous VM definitions
+[DEBUG][20-08-26][org.apache.velocity.macro]allowInlineLocal = false: VMs defined inline will be global in scope if allowed.
+[DEBUG][20-08-26][org.apache.velocity.macro]autoload off: VM system will not automatically reload global library macros
+[DEBUG][20-08-26][org.apache.velocity.loader]ResourceManager: found /templates/entity.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-26][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/entity.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\entity\LogLogin.java
+[DEBUG][20-08-26][org.apache.velocity.loader]ResourceManager: found /templates/mapper.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-26][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/mapper.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\mapper\LogLoginMapper.java
+[DEBUG][20-08-26][org.apache.velocity.loader]ResourceManager: found /templates/mapper.xml.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-26][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/mapper.xml.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\mapper\xml\LogLoginMapper.xml
+[DEBUG][20-08-26][org.apache.velocity.loader]ResourceManager: found /templates/service.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-26][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/service.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\service\LogLoginService.java
+[DEBUG][20-08-26][org.apache.velocity.loader]ResourceManager: found /templates/serviceImpl.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-26][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/serviceImpl.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\service\impl\LogLoginServiceImpl.java
+[DEBUG][20-08-26][org.apache.velocity.loader]ResourceManager: found /templates/controller.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+[DEBUG][20-08-26][com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine]模板:/templates/controller.java.vm;  文件:E:\javaEE\projects\car_rent/src/main/java\com\hua\sys\controller\LogLoginController.java
+[DEBUG][20-08-26][com.baomidou.mybatisplus.generator.AutoGenerator]==========================文件生成完成！！！==========================

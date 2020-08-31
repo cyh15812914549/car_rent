@@ -294,7 +294,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="108" />
     <option name="y" value="94" />
     <option name="width" value="1548" />
@@ -571,6 +571,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/cmd/git.exe" />
@@ -726,12 +727,12 @@
       <workItem from="1598405082425" duration="13054000" />
       <workItem from="1598512013396" duration="9387000" />
       <workItem from="1598578995257" duration="2526000" />
-      <workItem from="1598842507542" duration="3235000" />
+      <workItem from="1598842507542" duration="3829000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133035000" />
+    <option name="totallyTimeSpent" value="133629000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -743,7 +744,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="108" y="94" width="1548" height="1002" extended-state="1" />
+    <frame x="108" y="94" width="1548" height="1002" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.53809524" visible="true" weight="0.1827957" />

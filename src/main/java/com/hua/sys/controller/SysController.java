@@ -61,4 +61,12 @@ public class SysController {
         return "system/logLogin/logLoginManager";
     }
 
+    /**
+     * 跳转公告管理页面
+     */
+    @RequestMapping("/toNewsManager")
+    public String toNewsManager() {
+        return "system/news/newsManager";
+    }
+
 }

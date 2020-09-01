@@ -43,7 +43,7 @@ public class LogLoginServiceImpl extends ServiceImpl<LogLoginMapper, LogLogin> i
             queryWrapper.and(i->i.ge("logintime",logLoginVo.getStartTime()));
         }
         if (logLoginVo.getEndTime() != null){
-            queryWrapper.and(i->i.ge("endTime",logLoginVo.getEndTime()));
+            queryWrapper.and(i->i.le("logintime",logLoginVo.getEndTime()));
         }
         page = logLoginMapper.selectPage(page,queryWrapper);
         return new DataGridView(page.getTotal(),page.getRecords());

@@ -35,6 +35,19 @@
             </table>
         </div>
     </div>
+
+    <!-- 查看公告的div -->
+    <div id="desk_viewNewsDiv" style="padding: 10px;display: none;">
+        <h2 id="view_title" align="center"></h2>
+        <hr>
+        <div style="text-align: right;">
+            发布人:<span id="view_opername"></span>  <span style="display: inline-block;width: 20px" ></span>
+            发布时间:<span id="view_createtime"></span>
+        </div>
+        <hr>
+        <div id="view_content"></div>
+    </div>
+
     <script type="text/javascript" src="${ctx}/resources/layui/layui.js"></script>
 
     <script type="text/javascript">
@@ -85,29 +98,47 @@
             })
 
             //最新文章列表
-            $.get("${ctx}/resources/json/newsList.json", function (data) {
+            $.get("${ctx}/news/loadAllNews?page=1&limit=10", function (data) {
                 var hotNewsHtml = '';
                 for (var i = 0; i < 5; i++) {
-                    hotNewsHtml += '<tr>'
-                        + '<td align="left"><a href="javascript:;"> ' + data.data[i].newsName + '</a></td>'
-                        + '<td>' + data.data[i].newsTime.substring(0, 10) + '</td>'
+                    hotNewsHtml += '<tr ondblclick=viewNews('+data.data[i].id+')>'
+                        + '<td align="left"><a href="javascript:;"> ' + data.data[i].title + '</a></td>'
+                        + '<td>' + data.data[i].createtime.substring(0, 10) + '</td>'
                         + '</tr>';
                 }
                 $(".hot_news").html(hotNewsHtml);
                 $(".userAll span").text(data.length);
             })
 
-            //用户数量
-            $.get("../json/userList.json", function (data) {
-                $(".userAll span").text(data.count);
-            })
 
-            //外部图标
-            $.get(iconUrl, function (data) {
-                $(".outIcons span").text(data.split(".icon-").length - 1);
-            })
+            // //用户数量
+            // $.get("../json/userList.json", function (data) {
+            //     $(".userAll span").text(data.count);
+            // })
+            //
+            // //外部图标
+            // $.get(iconUrl, function (data) {
+            //     $(".outIcons span").text(data.split(".icon-").length - 1);
+            // })
 
         })
+
+        function viewNews(id) {
+            $.get("${ctx}/news/loadNewsById",{id:id},function (news) {
+                layer.open({
+                    type: 1,
+                    title: "查看公告",
+                    content: $("#desk_viewNewsDiv"),
+                    area: ['800px','550px'],
+                    success: function (index) {
+                        $("#view_title").html(news.title);
+                        $("#view_opername").html(news.opername);
+                        $("#view_createtime").html(news.createtime);
+                        $("#view_content").html(news.content);
+                    }
+                })
+            })
+        }
     </script>
 </body>
 </html>

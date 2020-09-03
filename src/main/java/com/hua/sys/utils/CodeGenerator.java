@@ -2,16 +2,16 @@ package com.hua.sys.utils;
 
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.GlobalConfig;
-import com.baomidou.mybatisplus.generator.config.PackageConfig;
-import com.baomidou.mybatisplus.generator.config.StrategyConfig;
-import com.baomidou.mybatisplus.generator.config.TemplateConfig;
+import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -75,6 +75,29 @@ public class CodeGenerator {
         pc.setServiceImpl("service.impl");
         pc.setXml("mapper.xml");
         mpg.setPackageInfo(pc);
+
+        //
+        //如果模板引擎是 velocity
+        String mapperXmlPath = "/templates/mapper.xml.vm";
+        // 自定义配置
+        InjectionConfig cfg = new InjectionConfig() {
+            @Override
+            public void initMap() {
+                // to do nothing
+            }
+        };
+        // 自定义输出配置
+        List<FileOutConfig> focList = new ArrayList<>();
+        focList.add(new FileOutConfig(mapperXmlPath) {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                // 自定义xml 文件名和生成路径
+                return projectPath + "/src/main/resources/mapper/"
+                        + pc.getModuleName() + tableInfo.getEntityName() + StringPool.DOT_XML;
+            }
+        });
+        //
+
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();

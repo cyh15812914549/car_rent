@@ -12,6 +12,7 @@
 
     <!--Impl注入到IOC容器中-->
     <context:component-scan base-package="com.hua.sys.service.impl"></context:component-scan>
+    <context:component-scan base-package="com.hua.bus.service.impl"></context:component-scan>
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

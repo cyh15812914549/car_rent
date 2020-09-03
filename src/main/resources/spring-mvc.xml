@@ -35,5 +35,5 @@
 
     <!-- 4.扫描web相关的bean -->
     <context:component-scan base-package="com.hua.sys.controller" />
-
+    <context:component-scan base-package="com.hua.bus.controller" />
 </beans>

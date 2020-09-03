@@ -2,6 +2,8 @@ package com.hua.bus.service;
 
 import com.hua.bus.entity.Customer;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.hua.bus.vo.CustomerVo;
+import com.hua.sys.utils.DataGridView;
 
 /**
  * <p>
@@ -13,4 +15,21 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface CustomerService extends IService<Customer> {
 
+    /**
+     * 查询所有日志
+     * @param customerVo
+     * @return
+     */
+    DataGridView queryAllCustomer(CustomerVo customerVo);
+
+    /**
+     * 根据id删除客户
+     * @param identity
+     */
+    void deleteCustomer(String identity);
+    /**
+     * 批量删除客户
+     * @param identitys
+     */
+    void deleteBatchCustomer(String [] identitys);
 }

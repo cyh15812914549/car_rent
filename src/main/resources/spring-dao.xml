@@ -86,7 +86,7 @@
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 给出需要扫描Dao接口包 -->
-        <property name="basePackage" value="com.hua.sys.mapper"/>
+        <property name="basePackage" value="com.hua.sys.mapper,com.hua.bus.mapper"/>
     </bean>
 
 </beans>

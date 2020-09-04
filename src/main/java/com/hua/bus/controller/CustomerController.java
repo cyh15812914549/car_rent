@@ -42,7 +42,6 @@ public class CustomerController {
     @RequestMapping("/addCustomer")
     public ResultObj addCustomer(CustomerVo customerVo) {
         try {
-            customerVo.setCreatetime(new Date());
             customerService.save(customerVo);
             return ResultObj.ADD_SUCCESS;
         } catch (Exception e) {

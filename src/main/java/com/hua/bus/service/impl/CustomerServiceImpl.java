@@ -39,7 +39,7 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, Customer> i
         queryWrapper.orderByDesc("createtime");
         if (StringUtils.isNotEmpty(customerVo.getIdentity()) || StringUtils.isNotEmpty(customerVo.getCustname())
             || StringUtils.isNotEmpty(customerVo.getPhone()) || StringUtils.isNotEmpty(customerVo.getCareer())
-            || StringUtils.isNotEmpty(customerVo.getAddress())){
+            || StringUtils.isNotEmpty(customerVo.getAddress()) || customerVo.getSex() != null){
             queryWrapper.and(i -> i.like("identity ",customerVo.getIdentity())
                     .like("custname",customerVo.getCustname())
                     .like("phone",customerVo.getPhone())

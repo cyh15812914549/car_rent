@@ -97,7 +97,7 @@
 <div style="display: none;padding: 20px" id="saveOrUpdateDiv" >
     <form class="layui-form"  lay-filter="dataFrm" id="dataFrm">
         <div class="layui-form-item">
-            <div class="layui-inline">
+            <div class="layui-inline" id="hiddenIdentity">
                 <label class="layui-form-label">身份证号:</label>
                 <div class="layui-input-inline">
                     <input type="text" name="identity" lay-verify="required"   placeholder="请输入身份证号" autocomplete="off"
@@ -169,7 +169,7 @@
             ,url:'${ctx}/customer/loadAllCustomer' //数据接口
             ,title: '客户数据表'//数据导出来的标题
             ,toolbar:"#customerToolBar"   //表格的工具条
-            ,height:'full-220'
+            ,height:'full'
             ,cellMinWidth:100 //设置列的最小默认宽度
             ,page: true  //是否启用分页
             ,cols: [[   //列表数据
@@ -260,6 +260,7 @@
                 content:$("#saveOrUpdateDiv"),
                 area:['800px','400px'],
                 success:function(index){
+                    $("#hiddenIdentity").hide();
                     form.val("dataFrm",data);
                     url="${ctx}/customer/updateCustomer";
                 }
@@ -291,14 +292,20 @@
                     params+="&ids="+item.identity;
                 }
             });
-            layer.confirm('真的删除选中的这些客户吗', function(index){
-                //向服务端发送删除指令
-                $.post("${ctx}/customer/deleteBatchCustomer",params,function(res){
-                    layer.msg(res.msg);
-                    //刷新数据 表格
-                    tableIns.reload();
-                })
-            });
+            if (params == ""){
+                layer.confirm('请先选择要删除的客户',{icon: '&#xe60b;', title:'提示'},function(index){
+                    layer.close(index);
+                });
+            }else {
+                layer.confirm('真的删除选中的这些客户吗', function(index){
+                    //向服务端发送删除指令
+                    $.post("${ctx}/customer/deleteBatchCustomer",params,function(res){
+                        layer.msg(res.msg);
+                        //刷新数据 表格
+                        tableIns.reload();
+                    })
+                });
+            }
         }
     });
 </script>

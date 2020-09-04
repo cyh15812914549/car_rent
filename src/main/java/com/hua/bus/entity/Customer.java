@@ -1,8 +1,7 @@
 package com.hua.bus.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import java.util.Date;
@@ -32,7 +31,7 @@ public class Customer implements Serializable {
     private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "身份证")
-    @TableId(type= IdType.AUTO)
+    @TableId(value = "identity",type=IdType.INPUT)
     private String identity;
 
     @ApiModelProperty(value = "姓名")
@@ -51,6 +50,7 @@ public class Customer implements Serializable {
     private String career;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @TableField(fill = FieldFill.INSERT)
     private Date createtime;
 
 

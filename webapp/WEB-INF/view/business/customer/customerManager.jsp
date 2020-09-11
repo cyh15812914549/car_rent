@@ -97,11 +97,11 @@
 <div style="display: none;padding: 20px" id="saveOrUpdateDiv" >
     <form class="layui-form"  lay-filter="dataFrm" id="dataFrm">
         <div class="layui-form-item">
-            <div class="layui-inline" id="hiddenIdentity">
+            <div class="layui-inline" >
                 <label class="layui-form-label">身份证号:</label>
                 <div class="layui-input-inline">
                     <input type="text" name="identity" lay-verify="required"   placeholder="请输入身份证号" autocomplete="off"
-                           class="layui-input">
+                           class="layui-input" id="Identity">
                 </div>
             </div>
             <div class="layui-inline">
@@ -249,6 +249,7 @@
                     //清空表单数据
                     $("#dataFrm")[0].reset();
                     url="${ctx}/customer/addCustomer";
+                    $("#Identity").removeAttr("readonly");
                 }
             });
         }
@@ -260,9 +261,9 @@
                 content:$("#saveOrUpdateDiv"),
                 area:['800px','400px'],
                 success:function(index){
-                    $("#hiddenIdentity").hide();
                     form.val("dataFrm",data);
                     url="${ctx}/customer/updateCustomer";
+                    $("#Identity").attr({"readonly":"readonly"});
                 }
             });
         }

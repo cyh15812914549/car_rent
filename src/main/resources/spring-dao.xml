@@ -78,6 +78,14 @@
                 </bean>
             </array>
         </property>
+        <property name="globalConfig" ref="globalConfig"/>
+    </bean>
+
+<!--    配置自动注入时间类-->
+    <bean id="globalConfig" class="com.baomidou.mybatisplus.core.config.GlobalConfig">
+        <property name="metaObjectHandler">
+            <bean class="com.hua.sys.handler.MyMetaObjectHandler"/>
+        </property>
     </bean>
 
     <!-- 4.配置扫描Dao接口包，动态实现Dao接口注入到spring容器中 -->

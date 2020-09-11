@@ -18,4 +18,20 @@ public class BusController {
     public String toCustomerManager(){
         return "business/customer/customerManager";
     }
+
+    /**
+     * 跳转到车辆管理的页面
+     */
+    @RequestMapping("/toCarManager")
+    public String toCarManager(){
+        return "business/car/carManager";
+    }
+
+    /**
+     * 跳转到车辆管理的页面
+     */
+    @RequestMapping("/toRentCarManager")
+    public String toRentCarManager(){
+        return "business/rent/rentManager";
+    }
 }

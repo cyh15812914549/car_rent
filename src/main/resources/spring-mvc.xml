@@ -33,6 +33,17 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <!-- 配置springmvc对文件上传的支持 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设置文件名的编码 -->
+        <property name="defaultEncoding" value="utf-8"></property>
+        <!-- 配置最上传文件的支持 20M -->
+        <property name="maxUploadSize" value="20971520"></property>
+        <!-- 设置文件上传的临时目录 -->
+<!--        <property name="uploadTempDir" value="upload/temp" />-->
+    </bean>
+
     <!-- 4.扫描web相关的bean -->
     <context:component-scan base-package="com.hua.sys.controller" />
     <context:component-scan base-package="com.hua.bus.controller" />

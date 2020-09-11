@@ -7,4 +7,5 @@
     <import resource="spring-mvc.xml"/>
     <import resource="spring-dao.xml"/>
     <import resource="spring-service.xml"/>
+    <import resource="application-task.xml"/>
 </beans>

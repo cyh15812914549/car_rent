@@ -163,18 +163,18 @@
                 , toolbar: "#menuToolBar"   //表格的工具条
                 , height: 'full-150'
                 , cellMinWidth: 100 //设置列的最小默认宽度
-                , done: function (res, curr, count) {
-                    if (curr > 1 && res.data.length === 0) {
-                        curr = curr - 1;
-                        table.reload('menuTable', {
-                            page: {
-                                curr: curr
-                            },
-                            where: {
-                            },
-                        }, 'data');
-                    }
-                }
+                // , done: function (res, curr, count) {
+                //     if (curr > 1 && res.data.length === 0) {
+                //         curr = curr - 1;
+                //         table.reload('menuTable', {
+                //             page: {
+                //                 curr: curr
+                //             },
+                //             where: {
+                //             },
+                //         }, 'data');
+                //     }
+                // }
                 , page: true  //是否启用分页
                 , cols: [[   //列表数据
                     {type: 'checkbox', fixed: 'left'}
@@ -199,7 +199,17 @@
                         }
                     }
                     , {fixed: 'right', title: '操作', toolbar: '#menuBar', width: 180, align: 'center'}
-                ]]
+                ]],
+                done:function(data,curr,count){
+                    //不是第一页时如果当前返回的的数据为0那么就返回上一页
+                    if(data.data.length==0&&curr!=1){
+                        tableIns.reload({
+                            page:{
+                                curr:curr-1
+                            }
+                        });
+                    }
+                }
             })
 
             //模糊查询

@@ -1,8 +1,12 @@
 package com.hua.bus.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -26,6 +30,7 @@ public class Car implements Serializable {
 
     private static final long serialVersionUID=1L;
 
+    @TableId(value = "carnumber",type= IdType.INPUT)
     private String carnumber;
 
     private String cartype;
@@ -44,7 +49,8 @@ public class Car implements Serializable {
 
     private String carimg;
 
-    private LocalDateTime createtime;
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @TableField(fill = FieldFill.INSERT)
+    private Date createtime;
 
 }

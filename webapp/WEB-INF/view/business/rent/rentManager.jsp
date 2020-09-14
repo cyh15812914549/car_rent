@@ -56,7 +56,67 @@
 
     <!-- 添加和修改的弹出层开始 -->
     <div style="display: none;padding: 20px" id="saveOrUpdateDiv" >
-        <form class="layui-form layui-row layui-col-space10"  lay-filter="dataFrm" id="dataFrm">
+        <form class="layui-form"  lay-filter="dataFrm" id="dataFrm">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">起租时间:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="begindate"  id="begindate" placeholder="请输入起租时间"  autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">还车时间:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="returndate"  id="returndate" placeholder="请输入还车时间"  autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">出租单号:</label>
+                <div class="layui-input-block">
+                    <input type="text" name="rentid" lay-verify="required"  readonly="readonly"  placeholder="请输入出租单号" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">身份证号:</label>
+                <div class="layui-input-block">
+                    <input type="text" name="identity" lay-verify="required" readonly="readonly"  placeholder="请输入身份证号" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">车牌号:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="carnumber" lay-verify="required"  readonly="readonly"  placeholder="请输入车牌号" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">出租价格:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="price" lay-verify="required"   placeholder="请输入出租价格" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">操作员:</label>
+                <div class="layui-input-block">
+                    <input type="text" name="opername" lay-verify="required"  readonly="readonly" placeholder="请输入操作员" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item" style="text-align: center;">
+                <div class="layui-input-block">
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release" lay-filter="doSubmit" lay-submit="">提交</button>
+                    <button type="reset" class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh" >重置</button>
+                </div>
+            </div>
+
         </form>
     </div>
     <!-- 添加和修改的弹出层结束 -->
@@ -69,12 +129,22 @@
     <script src="${ctx }/resources/layui/layui.js"></script>
     <script type="text/javascript">
         var tableIns;
-        layui.use([ 'jquery', 'layer', 'form', 'table','upload'  ], function() {
+        layui.use([ 'jquery', 'layer', 'form', 'table','laydate'  ], function() {
             var $ = layui.jquery;
             var layer = layui.layer;
             var form = layui.form;
             var table = layui.table;
-            var upload=layui.upload;
+            var laydate=layui.laydate;
+
+            laydate.render({
+                elem: "#begindate",
+                type: "datetime"
+            });
+
+            laydate.render({
+                elem: "#returndate",
+                type: "datetime"
+            });
 
             function initCarData(){
                 //渲染数据表格
@@ -120,69 +190,42 @@
                 })
             });
 
-            //监听头部工具栏事件
-            table.on("toolbar(carTable)",function(obj){
-                switch(obj.event){
-                    case 'add':
-                        openAddCar();
-                        break;
-                    case 'deleteBatch':
-                        deleteBatch();
-                        break;
-                };
-            })
+
             //监听行工具事件
             table.on('tool(carTable)', function(obj){
                 var data = obj.data; //获得当前行数据
                 var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
-                if(layEvent === 'del'){ //删除
-                    layer.confirm('真的删除【'+data.carnumber+'】这个出租吗', function(index){
-                        //向服务端发送删除指令
-                        $.post("${ctx}/car/deleteCar",{carnumber:data.carnumber},function(res){
-                            layer.msg(res.msg);
-                            //刷新数据 表格
-                            tableIns.reload();
-                        })
-                    });
-                } else if(layEvent === 'edit'){ //编辑
-                    openUpdateCar(data);
+                if(layEvent === 'rentCar'){ //编辑
+                    openRentCar(data);
                 }else if(layEvent==='viewImage'){
                     showCarImage(data);
                 }
             });
 
-            var url;
+
             var mainIndex;
             //打开添加页面
-            function openAddCar(){
+            function openRentCar(data){
                 mainIndex=layer.open({
                     type:1,
-                    title:'添加出租',
+                    title:'添加汽车出租',
                     content:$("#saveOrUpdateDiv"),
-                    area:['1000px','450px'],
+                    area:['800px','500px'],
                     success:function(index){
                         //清空表单数据
                         $("#dataFrm")[0].reset();
-                        //设置默认图片
-                        $("#showCarImg").attr("src","${ctx}/file/downloadShowFile?path=images/defaultcarimage.jpg")
-                        $("#carimg").val("images/defaultcarimage.jpg")
-                        url="${ctx}/car/addCar";
-                        $("#carnumber").removeAttr("readonly");
-                    }
-                });
-            }
-            //打开修改页面
-            function openUpdateCar(data){
-                mainIndex=layer.open({
-                    type:1,
-                    title:'修改出租',
-                    content:$("#saveOrUpdateDiv"),
-                    area:['1000px','450px'],
-                    success:function(index){
-                        form.val("dataFrm",data);
-                        $("#showCarImg").attr("src","${ctx}/file/downloadShowFile?path="+data.carimg);
-                        url="${ctx}/car/updateCar";
-                        $("#carnumber").attr("readonly","readonly");
+                        //请求数据
+                        var identity=$("#identity").val();
+                        var price=data.rentprice;
+                        var carnumber=data.carnumber;
+                        $.get("${ctx}/rent/initRentFrom",{
+                            identity:identity,
+                            price:price,
+                            carnumber:carnumber
+                        },function(obj){//---obj---RentVo
+                            //赋值
+                            form.val("dataFrm",obj);
+                        })
                     }
                 });
             }
@@ -190,52 +233,12 @@
             form.on("submit(doSubmit)",function(obj){
                 //序列化表单数据
                 var params=$("#dataFrm").serialize();
-                $.post(url,params,function(obj){
+                $.post("${ctx}/rent/saveRent",params,function(obj){
                     layer.msg(obj.msg);
                     //关闭弹出层
                     layer.close(mainIndex)
-                    //刷新数据 表格
-                    tableIns.reload();
+                    $("#content").hide();
                 })
-            });
-
-            //批量删除
-            function deleteBatch(){
-                //得到选中的数据行
-                var checkStatus = table.checkStatus('carTable');
-                var data = checkStatus.data;
-                var params="";
-                $.each(data,function(i,item){
-                    if(i==0){
-                        params+="ids="+item.carnumber;
-                    }else{
-                        params+="&ids="+item.carnumber;
-                    }
-                });
-                layer.confirm('真的删除选中的这些出租吗', function(index){
-                    //向服务端发送删除指令
-                    $.post("${ctx}/car/deleteBatchCar",params,function(res){
-                        layer.msg(res.msg);
-                        //刷新数据 表格
-                        tableIns.reload();
-                    })
-                });
-            }
-
-
-            //上传图片
-            //上传缩略图
-            upload.render({
-                elem: '#carimgDiv',
-                url: '${ctx}/file/uploadFile',
-                method : "post",  //此处是为了演示之用，实际使用中请将此删除，默认用post方式提交
-                acceptMime:'images/*',
-                field:"mf",
-                done: function(res, index, upload){
-                    $('#showCarImg').attr('src',"${ctx}/file/downloadShowFile?path="+res.data.src);
-                    $('#carimg').val(res.data.src);
-                    $('#carimgDiv').css("background","#fff");
-                }
             });
 
             //查看大图

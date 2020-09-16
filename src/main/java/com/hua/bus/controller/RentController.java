@@ -3,6 +3,7 @@ package com.hua.bus.controller;
 
 import com.hua.bus.entity.Car;
 import com.hua.bus.entity.Customer;
+import com.hua.bus.entity.Rent;
 import com.hua.bus.service.CarService;
 import com.hua.bus.service.CustomerService;
 import com.hua.bus.service.RentService;
@@ -10,9 +11,7 @@ import com.hua.bus.vo.CustomerVo;
 import com.hua.bus.vo.RentVo;
 import com.hua.sys.constast.SysConstast;
 import com.hua.sys.entity.User;
-import com.hua.sys.utils.RandomUtils;
-import com.hua.sys.utils.ResultObj;
-import com.hua.sys.utils.WebUtils;
+import com.hua.sys.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -90,5 +89,49 @@ public class RentController {
             return ResultObj.ADD_ERROR;
         }
     }
+
+    /**
+     * 查询出租单列表
+     */
+    @RequestMapping("/loadAllRent")
+    public DataGridView loadAllRent(RentVo rentVo) {
+        return rentService.queryAllRent(rentVo);
+    }
+    /**
+     * 修改出租单
+     */
+    @RequestMapping("/updateRent")
+    public ResultObj updateRent(RentVo rentVo){
+        try {
+            rentService.updateById(rentVo);
+            return ResultObj.UPDATE_SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultObj.UPDATE_ERROR;
+        }
+    }
+
+    /**
+     * 删除出租单
+     */
+    @RequestMapping("/deleteRent")
+    public ResultObj deleteRent(RentVo rentVo) {
+        try {
+            //先把车辆修改为未出租
+            Rent rent = rentService.getById(rentVo.getRentid());
+            Car car = new Car();
+            car.setCarnumber(rent.getCarnumber());
+            car.setIsrenting(SysConstast.RENT_CAR_FALSE);
+            carService.updateById(car);
+
+            rentService.removeById(rentVo.getRentid());
+
+            return ResultObj.DELETE_SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultObj.DELETE_ERROR;
+        }
+    }
+
 }
 

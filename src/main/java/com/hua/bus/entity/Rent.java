@@ -1,8 +1,7 @@
 package com.hua.bus.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import java.util.Date;
@@ -32,6 +31,7 @@ public class Rent implements Serializable {
 
     private static final long serialVersionUID=1L;
 
+    @TableId(value = "rentid",type= IdType.INPUT)
     private String rentid;
 
     private Double price;

@@ -3,6 +3,9 @@ package com.hua.bus.vo;
 import com.hua.bus.entity.Car;
 import com.hua.bus.entity.Rent;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 /**
  * @author cyh
@@ -10,6 +13,14 @@ import lombok.Data;
  */
 @Data
 public class RentVo extends Rent {
+
+    /**
+     * 时间
+     */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date startTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date endTime;
 
     /**
      * 分页参数

@@ -8,6 +8,7 @@ import com.hua.bus.service.CheckService;
 import com.hua.bus.service.RentService;
 import com.hua.bus.vo.CheckVo;
 import com.hua.sys.constast.SysConstast;
+import com.hua.sys.utils.DataGridView;
 import com.hua.sys.utils.ResultObj;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,6 +73,28 @@ public class CheckController {
         } catch (Exception e) {
             e.printStackTrace();
             return ResultObj.ADD_ERROR;
+        }
+    }
+
+    /**
+     * 查询检查单列表
+     */
+    @RequestMapping("/loadAllCheck")
+    public DataGridView loadAllRent(CheckVo checkVo) {
+        return checkService.queryAllCheck(checkVo);
+    }
+
+    /**
+     * 修改检查单
+     */
+    @RequestMapping("/updateCheck")
+    public ResultObj updateCheck(CheckVo checkVo){
+        try {
+            checkService.updateById(checkVo);
+            return ResultObj.UPDATE_SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultObj.UPDATE_ERROR;
         }
     }
 }

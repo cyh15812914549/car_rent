@@ -1,13 +1,18 @@
 package com.hua.bus.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
@@ -26,9 +31,12 @@ public class Check implements Serializable {
 
     private static final long serialVersionUID=1L;
 
+    @TableId(value = "checkid",type= IdType.INPUT)
     private String checkid;
 
-    private LocalDateTime checkdate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date checkdate;
 
     private String checkdesc;
 
@@ -40,7 +48,9 @@ public class Check implements Serializable {
 
     private String rentid;
 
-    private LocalDateTime createtime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @TableField(fill = FieldFill.INSERT)
+    private Date createtime;
 
 
 }

@@ -15,6 +15,8 @@
     
     <typeAliases>
         <package name="com.hua.sys.entity"/>
+        <package name="com.hua.stat.entity"/>
+        <package name="com.hua.bus.entity"/>
     </typeAliases>
 
 

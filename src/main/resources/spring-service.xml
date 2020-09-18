@@ -13,6 +13,7 @@
     <!--Impl注入到IOC容器中-->
     <context:component-scan base-package="com.hua.sys.service.impl"></context:component-scan>
     <context:component-scan base-package="com.hua.bus.service.impl"></context:component-scan>
+    <context:component-scan base-package="com.hua.stat.service.impl"></context:component-scan>
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -42,9 +43,11 @@
         <!-- 声明切面 -->
         <aop:pointcut expression="execution(* com.hua.sys.service.impl.*.*(..))" id="pc1"/>
         <aop:pointcut expression="execution(* com.hua.bus.service.impl.*.*(..))" id="pc2"/>
+        <aop:pointcut expression="execution(* com.hua.stat.service.impl.*.*(..))" id="pc3"/>
         <!-- 织入 -->
         <aop:advisor advice-ref="advise" pointcut-ref="pc1"/>
         <aop:advisor advice-ref="advise" pointcut-ref="pc2"/>
+        <aop:advisor advice-ref="advise" pointcut-ref="pc3"/>
     </aop:config>
 
 </beans>

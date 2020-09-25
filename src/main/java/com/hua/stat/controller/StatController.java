@@ -69,9 +69,18 @@ public class StatController {
     }
 
     /**
+     * 跳转到业务员年度统计数据页面
+     */
+    @RequestMapping("/toCompanyYearGradeStat")
+    public String toCompanyYearGradeStat(){
+        return "stat/companyYearGradeStat";
+    }
+
+
+    /**
      * 加载业务员年度统计数据
      */
-    @RequestMapping("loadCompanyYearGradeStat")
+    @RequestMapping("/loadCompanyYearGradeStat")
     @ResponseBody
     public List<Double> loadCompanyYearGradeStat(String year){
         List<Double> entities = statService.loadCompanyYearGradeStatList(year);

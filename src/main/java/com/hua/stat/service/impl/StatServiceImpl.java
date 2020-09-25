@@ -30,6 +30,6 @@ public class StatServiceImpl implements StatService {
 
     @Override
     public List<Double> loadCompanyYearGradeStatList(String year) {
-        return statMapper.queryCompanyYearGradeState(year);
+        return statMapper.queryCompanyYearGradeStat(year);
     }
 }

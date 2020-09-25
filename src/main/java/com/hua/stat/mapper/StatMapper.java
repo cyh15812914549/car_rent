@@ -20,5 +20,5 @@ public interface StatMapper {
     /**
      * 加载公司年度统计数据
      */
-    List<Double> queryCompanyYearGradeState(String year);
+    List<Double> queryCompanyYearGradeStat(String year);
 }

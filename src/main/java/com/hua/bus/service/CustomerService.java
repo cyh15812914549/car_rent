@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.hua.bus.vo.CustomerVo;
 import com.hua.sys.utils.DataGridView;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -21,6 +23,13 @@ public interface CustomerService extends IService<Customer> {
      * @return
      */
     DataGridView queryAllCustomer(CustomerVo customerVo);
+
+    /**
+     * 查询所有日志
+     * @param customerVo
+     * @return
+     */
+    List<Customer> queryAllCustomerList(Customer customer);
 
     /**
      * 根据id删除客户

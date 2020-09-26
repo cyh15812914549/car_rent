@@ -75,6 +75,7 @@
         <div class="layui-input-block" >
             <button type="button" class="layui-btn layui-btn-normal  layui-icon layui-icon-search" id="doSearch">查询</button>
             <button type="reset" class="layui-btn layui-btn-warm  layui-icon layui-icon-refresh">重置</button>
+            <button type="button" class="layui-btn layui-btn-normal layui-icon layui-icon-download-circle" id="doExport">导出</button>
         </div>
     </div>
 </form>
@@ -148,7 +149,7 @@
             <div class="layui-input-block">
                 <button type="button" class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release" lay-filter="doSubmit">提交</button>
                 <button type="reset" class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh" >重置</button>
-                <button type="button" class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-download-circle" lay-filter="doExport">导出</button>
+
             </div>
         </div>
     </form>
@@ -208,11 +209,11 @@
             })
         });
 
-        //模糊查询
+        //导出excel
         $("#doExport").click(function(){
             var params=$("#searchFrm").serialize();
             //下载是同步的
-            window.location.href="${ctx}/stat/exportCustomer?"+params;
+            window.location.href="${ctx}/customer/exportCustomer?"+params;
         });
 
         //监听头部工具栏事件

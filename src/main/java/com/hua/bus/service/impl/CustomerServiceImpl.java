@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * <p>
@@ -49,6 +50,25 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, Customer> i
         }
         page = customerMapper.selectPage(page,queryWrapper);
         return new DataGridView(page.getTotal(),page.getRecords());
+    }
+
+    @Override
+    public List<Customer> queryAllCustomerList(Customer customer) {
+        //构造模糊查询
+        QueryWrapper<Customer> queryWrapper = new QueryWrapper<>();
+        //降序
+        queryWrapper.orderByDesc("createtime");
+        if (StringUtils.isNotEmpty(customer.getIdentity()) || StringUtils.isNotEmpty(customer.getCustname())
+                || StringUtils.isNotEmpty(customer.getPhone()) || StringUtils.isNotEmpty(customer.getCareer())
+                || StringUtils.isNotEmpty(customer.getAddress()) || customer.getSex() != null){
+            queryWrapper.and(i -> i.like("identity ",customer.getIdentity())
+                    .like("custname",customer.getCustname())
+                    .like("phone",customer.getPhone())
+                    .like("career",customer.getCareer())
+                    .like("address",customer.getAddress())
+                    .eq(customer.getSex() != null,"sex",customer.getSex()));
+        }
+        return customerMapper.selectList(queryWrapper);
     }
 
     @Override

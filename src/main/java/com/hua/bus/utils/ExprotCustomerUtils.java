@@ -5,6 +5,8 @@ import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -48,9 +50,65 @@ public class ExprotCustomerUtils {
         //第二行
         index++;
         HSSFRow row2  = sheet.createRow(index);
+        //在第一行里面创建一个单元格
+        HSSFCell row2_cell2 = row2.createCell(0);
+        //设置标题样式
+        row2_cell2.setCellStyle(subTitleStyle);
+        //设置单元格内容
+        row2_cell2.setCellValue("总条数"+customers.size()+" 导出时间：" + new Date().toLocaleString());
 
+        //第三行
+        String[] titles = {"身份证号", "客户姓名", "客户电话", "客户地址", "客户职位", "性别", "录入时间" };
+        index++;
+        HSSFRow row3 = sheet.createRow(index);
+        for (int i = 0; i < titles.length; i++) {
+            HSSFCell row3_cell = row3.createCell(i);
+            row3_cell.setCellStyle(tableTitleStyle);
+            row3_cell.setCellValue(titles[i]);
+        }
 
-        return null;
+        //第四行
+        for (int i = 0; i < customers.size(); i++) {
+            index++;
+            Customer customer = customers.get(i);
+            HSSFRow row = sheet.createRow(index);
+            //创建列身份证号
+            HSSFCell row_identity = row.createCell(0);
+            row_identity.setCellStyle(baseStyle);
+            row_identity.setCellValue(customer.getIdentity());
+            //创建列客户姓名
+            HSSFCell row_custname = row.createCell(1);
+            row_custname.setCellStyle(baseStyle);
+            row_custname.setCellValue(customer.getCustname());
+            //9.3创建列客户电话
+            HSSFCell row_phone = row.createCell(2);
+            row_phone.setCellStyle(baseStyle);
+            row_phone.setCellValue(customer.getPhone());
+            //9.4创建列客户地址
+            HSSFCell row_address= row.createCell(3);
+            row_address.setCellStyle(baseStyle);
+            row_address.setCellValue(customer.getAddress());
+            //9.5创建列客户职位
+            HSSFCell row_career = row.createCell(4);
+            row_career.setCellStyle(baseStyle);
+            row_career.setCellValue(customer.getCareer());
+            //9.6创建列性别
+            HSSFCell row_sex = row.createCell(5);
+            row_sex.setCellStyle(baseStyle);
+            row_sex.setCellValue(customer.getSex()==1?"男":"女");
+            //9.7创建列录入时间
+            HSSFCell row_createtime = row.createCell(6);
+            row_createtime.setCellStyle(baseStyle);
+            row_createtime.setCellValue(customer.getCreatetime().toLocaleString());
+        }
 
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        try {
+            hssfWorkbook.write(outputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return outputStream;
     }
 }

@@ -1,17 +1,28 @@
 package com.hua.bus.controller;
 
 
+import com.hua.bus.entity.Customer;
 import com.hua.bus.service.CustomerService;
+import com.hua.bus.utils.ExprotCustomerUtils;
 import com.hua.bus.vo.CustomerVo;
 import com.hua.sys.utils.DataGridView;
 import com.hua.sys.utils.ResultObj;
 import com.hua.sys.utils.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayOutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -89,6 +100,34 @@ public class CustomerController {
             e.printStackTrace();
             return ResultObj.DELETE_ERROR;
         }
+    }
+
+    /**
+     * 导出客户数据
+     */
+    @RequestMapping("/exportCustomer")
+    public ResponseEntity<Object> exportCustomer(CustomerVo customerVo, HttpServletResponse response){
+        List<Customer> customers = customerService.queryAllCustomerList(customerVo);
+        for (Customer customer : customers) {
+            System.out.println(customer.getIdentity());
+        }
+        String fileName="客户数据.xls";
+        String sheetName="客户数据";
+        ByteArrayOutputStream bos = ExprotCustomerUtils.exportCustomer(customers,sheetName);
+        //处理文件名乱码
+        try {
+            fileName= URLEncoder.encode(fileName,"UTF-8");
+            //创建封装响应头信息的对象
+            HttpHeaders headers = new HttpHeaders();
+            //封装响应内容类型(APPLICATION_OCTET_STREAM 响应的内容不限定)
+            headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+            //设置下载的文件的名称
+            headers.setContentDispositionFormData("attachment",fileName);
+            return new ResponseEntity<>(bos.toByteArray(),headers, HttpStatus.CREATED);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
 

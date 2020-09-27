@@ -15,6 +15,8 @@ public class UserVo extends User {
     private Integer page;
     private Integer limit;
 
+    private String code;
+
     /**
      * 接收多个角色id
      */

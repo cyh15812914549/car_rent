@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="${ctx}/resources/css/public.css" media="all" />
 </head>
 <body class="loginBody">
-	<form class="layui-form" id="loginFrm" method="post" action="${ctx }/login/login">
+	<form class="layui-form" method="post" action="${ctx }/login/login" id="loginFrm" >
 		<div class="login_face"><img src="${ctx}/resources/images/face.jpg" class="userAvatar"></div>
 		<div class="layui-form-item input-item">
 			<label for="userName">用户名</label>
@@ -28,8 +28,8 @@
 		</div>
 		<div class="layui-form-item input-item" id="imgCode">
 			<label for="code">验证码</label>
-			<input type="text" placeholder="请输入验证码" value="123" autocomplete="off" id="code" class="layui-input">
-			<img src="${ctx}/resources/images/code.jpg">
+			<input type="text" placeholder="请输入验证码" lay-verify="required" autocomplete="off" name="code" id="code" class="layui-input">
+			<img src="${ctx}/login/getCode" onclick="this.src=this.src+'?'">
 		</div>
 		<div class="layui-form-item">
 			<button class="layui-btn layui-block" lay-filter="login" lay-submit>登录</button>
@@ -45,16 +45,17 @@
 	<script type="text/javascript" src="${ctx}/resources/js/cache.js"></script>
 	<script type="text/javascript">
 	layui.use(['form','layer','jquery'],function(){
-	    var form = layui.form,
-	        layer = parent.layer === undefined ? layui.layer : top.layer
+	    var form = layui.form;
+		var layer = layui.layer;
+	        // layer = parent.layer === undefined ? layui.layer : top.layer
 	        $ = layui.jquery;
 	    //登录按钮
 	    form.on("submit(login)",function(data){
-	        $(this).text("登录中...").attr("disabled","disabled").addClass("layui-disabled");
-	        setTimeout(function(){
-	           $("#loginFrm").submit();
-	        },1000);
-	        return false;
+			$(this).text("登录中...").attr("disabled","disabled").addClass("layui-disabled");
+			setTimeout(function(){
+				$("#loginFrm").submit();
+			},1000);
+			return false;
 	    })
 
 	    //表单输入效果
